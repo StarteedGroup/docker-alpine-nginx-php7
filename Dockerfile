@@ -3,6 +3,7 @@ FROM nginx:mainline-alpine
 MAINTAINER prometherion <dario.tranchitella@starteed.com>
 
 # Log variables
+ENV ENABLE_LOG=1
 ENV LOG_FILES='/var/log/php-fpm.log /var/log/nginx.log /var/www/storage/logs/laravel.log /var/www/storage/logs/lumen.log'
 ENV PAPERTRAIL_DOMAIN=logs4.papertrailapp.com
 ENV PAPERTRAIL_PORT=10100
