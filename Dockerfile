@@ -78,6 +78,7 @@ RUN sed -i -E \
         -e "s/;listen.group = nobody/listen.group = nginx/g" \
         -e "s/listen = 127.0.0.1:9000/listen = \/var\/run\/php-fpm.sock/g" \
         -e "s/^;clear_env = no$/clear_env = no/" \
+        -e "s/request_terminate_timeout = (.*)/request_terminate_timeout = 300/g" \
         /etc/php7/php-fpm.d/www.conf && \
     ln -s /etc/php7/php.ini /etc/php7/conf.d/php.ini && \
     find /etc/php7/conf.d/ -name "*.ini" -exec sed -i -re 's/^(\s*)#(.*)/\1;\2/g' {} \;
