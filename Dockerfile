@@ -50,8 +50,10 @@ RUN sed -i -e "s/v3.4/edge/" /etc/apk/repositories && \
     php7-soap \
     php7-dom \
     php7-zip \
-    php7-session
+    php7-session \
+    php7-redis
 
+# Installing remote_syslog for PaperTrail log collection
 RUN wget -q -O - https://github.com/papertrail/remote_syslog2/releases/download/v0.19/remote_syslog_linux_amd64.tar.gz | tar -zxf - \
     && apk del build-dependencies \
     && rm -rf /var/cache/apk/*
