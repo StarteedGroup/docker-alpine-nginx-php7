@@ -12,6 +12,11 @@ ENV LOG_HOSTNAME=crowdfunding
 # PHP variables
 ENV MAX_FILESIZE=20M
 
+# Updating Alpine repositories
+RUN echo 'http://alpine.gliderlabs.com/alpine/edge/main' > /etc/apk/repositories && \
+    echo 'http://alpine.gliderlabs.com/alpine/edge/community' >> /etc/apk/repositories && \
+    echo 'http://alpine.gliderlabs.com/alpine/edge/testing' >> /etc/apk/repositories
+
 # Configuring rsyslog, utilities, php and extensions
 RUN sed -i -e "s/v3.4/edge/" /etc/apk/repositories && \
     apk update && \
